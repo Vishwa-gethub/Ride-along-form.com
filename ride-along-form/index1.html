@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Wheeler Ride Along Form - Vehicle Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            max-width: 1600px;
+            box-sizing: border-box;
+            outline: 2px solid purple; /* Outline thickness and color */
+            outline-offset: -12px; /* Move the outline inside the border */
+        }
+
+        .step {
+            font-size: 1.2em;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 2em;
+            color: purple;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+            flex-wrap: wrap; /* Wrap tabs on smaller screens */
+        }
+
+        .tab {
+            background-color: light-gray;
+            font-weight: bold;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px; /* Space for wrapping tabs */
+        }
+
+        .tab.active {
+            background-color: purple;
+            color: white;
+        }
+
+        .assessment-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-size: 0.9em;
+            width: 200%;
+            margin-right: 0px;
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .dropdown-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        select {
+            padding: 5px;
+            width: 20%;
+            margin-right: 15px;
+            margin-left: 35px;
+            box-sizing: border-box;
+        }
+
+        .remark-input {
+            padding: 5px;
+            width: 60%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .next-btn {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            align-self: flex-end;
+            margin-top: 20px;
+        }
+
+        .additional-dropdowns {
+            display: flex;
+            align-items: center;
+            margin-left: 10px; /* Adjust margin for spacing */
+        }
+        .additional-input type {
+            display: flex;
+            align-items: center;
+            margini-left: 5px;
+        }
+
+        .additional-dropdowns select {
+            margin-left: 5px;
+            width: auto;
+        }
+        .additional-input type {
+            margin-right: 5px;
+            width: auto;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1200px) {
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-group label,
+            .dropdown-group {
+                width: 100%;
+            }
+
+            .remark-input {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            select {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .additional-dropdowns {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .additional-input type {
+                felx-direction: column;
+                align-item: flex-start; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="step">1</div>
+        <h1 class="title">TWO WHEELER RIDE ALONG FORM</h1>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="window.location.href='index1.html'">Vehicle Assessment</button>
+            <button class="tab" onclick="window.location.href='index2.html'">Rider Assessment</button>
+            <button class="tab" onclick="window.location.href='index3.html'">Vehicle Details</button>
+        </div>
+
+        <form class="assessment-form" method="POST" action="submit1.php">
+            <!-- User Details Section -->
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+
+            <div class="additional-input type">
+                <label for="hq">HQ:</label>
+                <input type="text" id="hq" name="hq" placeholder="Enter HQ" required>
+            </div>
+            </select>
+
+            <div class="additional-input type">
+                <label for="team">Team:</label>
+                <input type="text" id="team" name="team" placeholder="Enter Team" required>
+            </div>
+            </select>
+
+            <div class="additional-input type">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter Name" required>
+            </div>
+
+            <!-- Vehicle Assessment Section -->
+            <div class="form-group">
+                <label>
+                    1. Is the Vehicle Tyre Pressure correct?
+                    <div class="additional-dropdowns">
+                        <label>Front</label>
+                        <select name="tyre-pressure-front" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+
+                        <label>Rear</label>
+                        <select name="tyre-pressure-rear" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </label>
+                <div class="dropdown-group">
+                    <select name="tyre-pressure" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="tyre-pressure-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>2. How is the threading condition of the tyres? Are there any cuts?</label>
+                <div class="dropdown-group">
+                    <select name="threading-condition" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="threading-condition-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>3. Is the speedometer functioning properly?</label>
+                <div class="dropdown-group">
+                    <select name="speedometer" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="speedometer-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>4. Is the fuel meter functioning properly?</label>
+                <div class="dropdown-group">
+                    <select name="fuel-meter" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="fuel-meter-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>5. Are both mirrors present? Is it positioned properly as per rider's eye line?</label>
+                <div class="dropdown-group">
+                    <select name="mirrors" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="mirrors-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>6. Do the front and rear brakes function properly?</label>
+                <div class="dropdown-group">
+                    <select name="brakes" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="brakes-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>7. Is the horn functioning properly?</label>
+                <div class="dropdown-group">
+                    <select name="horn" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="horn-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>8. Is the auto/kick starter functioning properly?</label>
+                <div class="dropdown-group">
+                    <select name="starter" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="starter-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>9. Is the vehicle key in good condition? Check for any bend or rust.</label>
+                <div class="dropdown-group">
+                    <select name="vehicle-key" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="vehicle-key-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>10. How is the seat condition of the vehicle? Is there any damage/cuts?</label>
+                <div class="dropdown-group">
+                    <select name="seat-condition" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="seat-condition-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>11. Is the main stand & side stand functioning properly?</label>
+                <div class="dropdown-group">
+                    <select name="stand" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="stand-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>12. Are the number plates of the vehicle clearly visible?</label>
+                <div class="dropdown-group">
+                    <select name="number-plates" required>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="number-plates-remark" placeholder="Remark...">
+                </div>
+            </div>
+
+            <button type="submit" class="next-btn">Next</button>
+        </form>
+    </div>
+</body>
+</html>

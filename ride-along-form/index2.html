@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Wheeler Ride Along Form - Rider Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            max-width: 1600px;
+            box-sizing: border-box;
+            outline: 2px solid purple; /* Outline thickness and color */
+            outline-offset: -12px; /* Move the outline inside the border */
+        }
+
+        .step {
+            font-size: 1.2em;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 2em;
+            color: purple;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+        }
+
+        .tab {
+            background-color: light-gray;
+            font-weight: bold;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tab.active {
+            background-color: purple;
+            color: white;
+        }
+
+        .assessment-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-size: 0.9em;
+            width: 200%;
+            margin-right: 0px;
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .dropdown-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        select {
+            padding: 5px;
+            width: 20%;
+            margin-right: 15px;
+            margin-left: 35px;
+            box-sizing: border-box;
+        }
+
+        .remark-input {
+            padding: 5px;
+            width: 60%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .prev-btn,
+        .next-btn {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="step">2</div>
+        <h1 class="title">TWO WHEELER RIDE ALONG FORM</h1>
+
+        <div class="tabs">
+            <button class="tab" onclick="window.location.href='index1.html'">Vehicle Assessment</button>
+            <button class="tab active" onclick="window.location.href='index2.html'">Rider Assessment</button>
+            <button class="tab" onclick="window.location.href='index3.html'">Vehicle Details</button>
+        </div>
+
+        <form class="assessment-form" method="POST" action="submit2.php">
+            <div class="form-group">
+                <label>1. Does the rider use hand signal / indicator while taking a turn?</label>
+                <div class="dropdown-group">
+                    <select name="hand-signal">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-hand-signal" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>2. Does the rider overtake from the correct side?</label>
+                <div class="dropdown-group">
+                    <select name="overtake">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-overtake" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>3. Does the rider wear shoes with a well-defined heel while riding?</label>
+                <div class="dropdown-group">
+                    <select name="shoes">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-shoes" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>4. Is the rider sleepy while riding?</label>
+                <div class="dropdown-group">
+                    <select name="sleepy">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-sleepy" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>5. Does the rider stop at traffic signals?</label>
+                <div class="dropdown-group">
+                    <select name="traffic-signals">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-traffic-signals" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>6. Does the rider use a mobile phone while riding?</label>
+                <div class="dropdown-group">
+                    <select name="mobile">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-mobile" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>7. Does the rider follow legal speed limits?</label>
+                <div class="dropdown-group">
+                    <select name="speed-limits">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-speed-limits" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>8. Is the rider’s sitting posture correct? Check the position of hands, elbows, knees, and thighs.</label>
+                <div class="dropdown-group">
+                    <select name="posture">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-posture" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>9. Does the rider make way for an ambulance?</label>
+                <div class="dropdown-group">
+                    <select name="ambulance">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-ambulance" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>10. Is the rider courteous to other road users?</label>
+                <div class="dropdown-group">
+                    <select name="courteous">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-courteous" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>11. Has the rider attended the Safe Rider Programme? Date:</label>
+                <div class="dropdown-group">
+                    <select name="safe-rider-program">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-safe-rider-program" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>12. Does the rider wear an AZ Helmet with the strap buckled?</label>
+                <div class="dropdown-group">
+                    <select name="helmet">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-helmet" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>13. Is the helmet in good condition?</label>
+                <div class="dropdown-group">
+                    <select name="helmet-condition">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-helmet-condition" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>14. Does the rider wear an AZ Jacket?</label>
+                <div class="dropdown-group">
+                    <select name="jacket">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-jacket" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>15. Is the jacket in good condition?</label>
+                <div class="dropdown-group">
+                    <select name="jacket-condition">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="text" class="remark-input" name="remark-jacket-condition" placeholder="Remark...">
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" class="next-btn" onclick="window.location.href='index3.html'">Next</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

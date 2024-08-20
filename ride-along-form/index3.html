@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Wheeler Ride Along Form - Vehicle Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            max-width: 1600px;
+            box-sizing: border-box;
+            outline: 2px solid purple; /* Outline thickness and color */
+            outline-offset: -12px; /* Move the outline inside the border */
+        }
+
+        .step {
+            font-size: 1.2em;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 2em;
+            color: purple;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            background-color: light-gray;
+            font-weight: bold;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+        }
+
+        .tab.active {
+            background-color: purple;
+            color: white;
+        }
+
+        .assessment-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-size: 0.9em;
+            width: 30%;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 62.5%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-inline-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .form-inline-group .form-group {
+            width: 30%;
+        }
+
+        .secondary-vehicle-details {
+            display: none;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .prev-btn,
+        .next-btn {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1200px) {
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-group label,
+            .form-group input,
+            .form-group select {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .form-inline-group {
+                flex-direction: column;
+            }
+
+            .form-inline-group .form-group {
+                width: 100%;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .prev-btn,
+            .next-btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    <script>
+        function toggleSecondaryVehicleDetails() {
+            var useSecondary = document.getElementById("use-secondary").value;
+            var secondaryDetails = document.querySelector(".secondary-vehicle-details");
+
+            if (useSecondary === "yes") {
+                secondaryDetails.style.display = "block";
+                document.getElementById("secondary-vehicle-number").required = true;
+                document.getElementById("secondary-manufacturer").required = true;
+                document.getElementById("secondary-model").required = true;
+                document.getElementById("secondary-vehicle-type").required = true;
+                document.getElementById("secondary-fuel-type").required = true;
+            } else {
+                secondaryDetails.style.display = "none";
+                document.getElementById("secondary-vehicle-number").required = false;
+                document.getElementById("secondary-manufacturer").required = false;
+                document.getElementById("secondary-model").required = false;
+                document.getElementById("secondary-vehicle-type").required = false;
+                document.getElementById("secondary-fuel-type").required = false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="step">3</div>
+        <h1 class="title">TWO WHEELER RIDE ALONG FORM</h1>
+
+        <div class="tabs">
+            <button class="tab" onclick="window.location.href='index1.html'">Vehicle Assessment</button>
+            <button class="tab" onclick="window.location.href='index2.html'">Rider Assessment</button>
+            <button class="tab active" onclick="window.location.href='index3.html'">Vehicle Details</button>
+        </div>
+
+        <form class="assessment-form" action="submit_all.php" method="POST">
+            <div class="form-inline-group">
+                <div class="form-group">
+                    <label for="current-vehicle">Current Vehicle</label>
+                    <select id="current-vehicle" name="current-vehicle">
+                        <option value="2-wheeler">2 Wheeler</option>
+                        <option value="4-wheeler">4 Wheeler</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicle-type">Vehicle Type</label>
+                    <select id="vehicle-type" name="vehicle-type">
+                        <option value="ev">EV</option>
+                        <option value="petrol">Petrol</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vehicle-primary-secondary">Select</label>
+                    <select id="vehicle-primary-secondary" name="vehicle-primary-secondary">
+                        <option value="primary-vehicle">Primary Vehicle</option>
+                        <option value="secondary-vehicle">Secondary Vehicle</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="vehicle-number">Vehicle Number</label>
+                <input type="text" id="vehicle-number" name="vehicle-number">
+            </div>
+
+            <div class="form-group">
+                <label for="manufacturer">Manufacturer</label>
+                <input type="text" id="manufacturer" name="manufacturer">
+            </div>
+
+            <div class="form-group">
+                <label for="model">Model</label>
+                <input type="text" id="model" name="model">
+            </div>
+
+            <div class="form-group">
+                <label for="use-secondary">Do you use a Secondary Vehicle for field Work?</label>
+                <select id="use-secondary" name="use-secondary" onchange="toggleSecondaryVehicleDetails()">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <div class="secondary-vehicle-details">
+                <div class="form-group">
+                    <label for="secondary-vehicle-number">Vehicle Number</label>
+                    <input type="text" id="secondary-vehicle-number" name="secondary-vehicle-number">
+                </div>
+
+                <div class="form-group">
+                    <label for="secondary-manufacturer">Manufacturer</label>
+                    <input type="text" id="secondary-manufacturer" name="secondary-manufacturer">
+                </div>
+
+                <div class="form-group">
+                    <label for="secondary-model">Model</label>
+                    <input type="text" id="secondary-model" name="secondary-model">
+                </div>
+
+                <div class="form-inline-group">
+                    <div class="form-group">
+                        <label for="secondary-vehicle-type">Vehicle Type</label>
+                        <select id="secondary-vehicle-type" name="secondary-vehicle-type">
+                            <option value="2-wheeler">2 Wheeler</option>
+                            <option value="4-wheeler">4 Wheeler</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="secondary-fuel-type">Select</label>
+                        <select id="secondary-fuel-type" name="secondary-fuel-type">
+                            <option value="ev">EV</option>
+                            <option value="petrol">Petrol</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" class="prev-btn" onclick="window.location.href='index2.html'">Prev</button>
+                <button type="submit" class="next-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
